@@ -13,6 +13,12 @@ ul {
     list-style: none;
 }
 
+.container{
+    
+    margin: auto ;
+   
+   
+}
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -48,12 +54,14 @@ body {
     flex-direction: column; /* Hiển thị các mục trong thanh điều hướng theo chiều dọc */
     align-items: center;
     text-align: center;
+    
 }
 
 #nav ul {
     height: 100%;
     width: 100%;
     border: #000 solid;
+    font-size: 20px;
 }
 
 #nav a {
@@ -67,10 +75,27 @@ body {
 #content {
     width: 75vw;
     height: 80vh;
-    
     float: right;
+    padding: 30px;
 }
 
+#content .content-heading{
+    text-align: center;
+    font-size: 15px;
+}
+
+.content-item .btn-add{
+    background-color: rgb(76, 146, 1);
+    width: 100px;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid #000;
+}
+
+.content-item .btn-add a{
+    color: #fff;
+    font-weight: 700;
+
+}
 #footer {
     color: #000;
     text-align: center;
