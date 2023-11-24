@@ -1,137 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nhóm 20</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    header {
-      background-color: #169bd5;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 20px auto;
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      border-radius: 5px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 15px;
-      box-sizing: border-box;
-    }
-
-    input[type="date"] {
-      /* Additional styling for date input */
-      -webkit-appearance: none;
-      appearance: none;
-      padding: 8px;
-    }
-
-    button {
-      background-color: #169bd5;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .footer-container{
-      margin-top: 10em;
-      padding: 0 2em;
-      background-color: white;
-    }
-
-    .text-center{
-      text-align: center;
-      margin-bottom: 1em;
-    }
-
-    /* Add more styling as needed */
-  </style>
+  <title>Thêm hợp đồng
+  </title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 
-  <header>
-    <h1>Contract Management</h1>
-  </header>
-
-  <form action="taohd.php" method="post">
-    <h2 class='text-center'>Add Contract</h2>
+    <div id="header">
+        <div class="logo">
+            <img src="assets/img/download.png" alt="Logo">
+        </div>
+    </div>
+    
+    <div id="nav">
+        <ul>
+            <li><a href="index.php">Xem danh sách hợp đồng</a></li>
+            <li><a href="#">Thêm hợp đồng</a></li>
+        </ul>
+    </div>
+  
+    <div id="content">
+        <div class="container">
+            <div class="content-heading">
+                <h1>Thêm hợp đồng</h1>
+            </div>
+  <form action="themhopdong.php" method="post">
+    
     <label for="Customer_Name">Customer Name:</label>
-    <input type="text" id="Customer_Name" name="Customer_Name" required>
-
+    <input type="text" id="Customer_Name" name="Customer_Name" required> 
+    <br>
     <label for="Year_Of_Birth">Year of Birth:</label>
     <input type="text" id="Year_Of_Birth" name="Year_Of_Birth" required>
-
+    <br>
     <label for="SSN">SSN:</label>
     <input type="text" id="SSN" name="SSN" required>
-
+    <br>
     <label for="Customer_Address">Customer Address:</label>
     <input type="text" id="Customer_Address" name="Customer_Address" required>
-
+    <br>
     <label for="Mobile">Mobile:</label>
     <input type="text" id="Mobile" name="Mobile" required>
-
+    <br>
     <label for="Property_ID">Property ID:</label>
     <input type="text" id="Property_ID" name="Property_ID" required>
-
+    <br>
     <label for="Date_Of_Contract">Date of Contract:</label>
     <input type="date" id="Date_Of_Contract" name="Date_Of_Contract" required>
-
+    <br>
     <label for="Price">Price:</label>
     <input type="text" id="Price" name="Price" required>
-
+    <br>
     <label for="Deposit">Deposit:</label>
     <input type="text" id="Deposit" name="Deposit" required>
-
+    <br>
     <label for="Remain">Remain:</label>
     <input type="text" id="Remain" name="Remain" required>
-
+    <br>
     <label for="Status">Status:</label>
     <input type="text" id="Status" name="Status" required>
-
+    <br>
     <button type="submit" name="add_contract">Add Contract</button>
-  </form>
+  </form>  
+        </div>
+    </div>
 
-  <div class="container-fluid footer-container">
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-      <div class="col mb-3">
-        <p class="text-body-secondary">Copyright © 2007 - 2023 Perfectproperty.com.vn</p>
-        <p>Giấy ĐKKD số 0123456789 do Sở KHĐT TP Hà Nội cấp lần đầu ngày 10/10/2023</p>
-        <p>Giấy phép thiết lập trang thông tin điện tử tổng hợp trên mạng số 191/GP-TTĐT do Sở TTTT Hà Nội cấp ngày 13/10/2023</p>
-      </div>
-
-      <div class="col mb-3">
-        <p class="text-body-secondary">Chịu trách nhiệm nội dung GP ICP: Ông Lê Phạm Minh Tài</p>
-        <p>Chịu trách nhiệm sàn GDTMĐT: Ông Hà Trung Hiếu</p>
-        <p>Quy chế, quy định giao dịch có hiệu lực từ 08/08/2023</p>
-        <p>Ghi rõ nguồn "Perfectproperty.com.vn" khi phát hành lại thông tin từ website này.</p>
-      </div>
-     
-    </footer>
+  <div id="footer">
+    <p>@copyright by team 20</p>
   </div>
 
 </body>
@@ -173,7 +112,7 @@ if (isset($_POST['add_contract'])) {
 
     // Check if the query was successful
     if ($result) {
-        // Redirect to qlhd.php
+        
         header("Location: index.php");
         exit(); // Make sure to exit after a header redirect
     } else {
@@ -183,3 +122,5 @@ if (isset($_POST['add_contract'])) {
 
 $conn->close();
 ?>
+
+

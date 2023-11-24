@@ -43,7 +43,7 @@ if (!$result) {
     <div id="nav">
         <ul>
             <li><a href="#">Xem danh sách hợp đồng</a></li>
-            <li><a href="">Thêm hợp đồng</a></li>
+            <li><a href="themhopdong.php">Thêm hợp đồng</a></li>
         </ul>
     </div>
   
@@ -54,7 +54,7 @@ if (!$result) {
             </div>
 
             <div class="content-item">
-                <button class="btn-add"><a href="/themhopdong.html">Thêm+</a></button>
+                <button class="btn-add"><a href="themhopdong.php">Thêm+</a></button>
             </div>
             
             <div class="contract-list">
