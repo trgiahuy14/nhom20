@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 $servername = "localhost";
 $username = "root";
@@ -20,35 +18,10 @@ $result = $conn->query($sql);
 
 $conn->close();
 ?>
->>>>>>> ac243ca (final)
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thêm hợp đồng
-  </title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-
-    <div id="header">
-        <div class="logo">
-            <img src="assets/img/download.png" alt="Logo">
-        </div>
-    </div>
-    
-    <div id="nav">
-        <ul>
-            <li><a href="index.php">Xem danh sách hợp đồng</a></li>
-            <li><a href="#">Thêm hợp đồng</a></li>
-        </ul>
-    </div>
-  
-=======
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,61 +46,11 @@ $conn->close();
                 </div>
             
             </nav>
->>>>>>> ac243ca (final)
     <div id="content">
         <div class="container">
             <div class="content-heading">
                 <h1>Thêm hợp đồng</h1>
             </div>
-<<<<<<< HEAD
-  <form action="themhopdong.php" method="post">
-    
-    <label for="Customer_Name">Customer Name:</label>
-    <input type="text" id="Customer_Name" name="Customer_Name" required> 
-    <br>
-    <label for="Year_Of_Birth">Year of Birth:</label>
-    <input type="text" id="Year_Of_Birth" name="Year_Of_Birth" required>
-    <br>
-    <label for="SSN">SSN:</label>
-    <input type="text" id="SSN" name="SSN" required>
-    <br>
-    <label for="Customer_Address">Customer Address:</label>
-    <input type="text" id="Customer_Address" name="Customer_Address" required>
-    <br>
-    <label for="Mobile">Mobile:</label>
-    <input type="text" id="Mobile" name="Mobile" required>
-    <br>
-    <label for="Property_ID">Property ID:</label>
-    <input type="text" id="Property_ID" name="Property_ID" required>
-    <br>
-    <label for="Date_Of_Contract">Date of Contract:</label>
-    <input type="date" id="Date_Of_Contract" name="Date_Of_Contract" required>
-    <br>
-    <label for="Price">Price:</label>
-    <input type="text" id="Price" name="Price" required>
-    <br>
-    <label for="Deposit">Deposit:</label>
-    <input type="text" id="Deposit" name="Deposit" required>
-    <br>
-    <label for="Remain">Remain:</label>
-    <input type="text" id="Remain" name="Remain" required>
-    <br>
-    <label for="Status">Status:</label>
-    <input type="text" id="Status" name="Status" required>
-    <br>
-    <button type="submit" name="add_contract">Add Contract</button>
-  </form>  
-        </div>
-    </div>
-
-  <div id="footer">
-    <p>@copyright by team 20</p>
-  </div>
-
-</body>
-</html>
-
-=======
 
 
             <form action="themhopdong.php" method="post">
@@ -184,7 +107,7 @@ $conn->close();
         </script>
     </div>
     <div class="btn-add">
-        <button type="submit" name="add_contract">Lưu Hợp Đồng</button>
+        <button type="submit" name="add_contract">Lưu hợp đồng</button>
     </div>
 </form>
 
@@ -207,7 +130,6 @@ $conn->close();
 </html>
 
 
->>>>>>> ac243ca (final)
 <?php
 $servername = "localhost";
 $username = "root";
@@ -223,11 +145,7 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST['add_contract'])) {
-<<<<<<< HEAD
-    // Retrieve form data (adjust field names based on your form)
-=======
     
->>>>>>> ac243ca (final)
     $Customer_Name = isset($_POST['Customer_Name']) ? $_POST['Customer_Name'] : '';
     $Year_Of_Birth = $_POST['Year_Of_Birth'] ?? '';
     $SSN = $_POST['SSN'] ?? '';
@@ -240,29 +158,17 @@ if (isset($_POST['add_contract'])) {
     $Remain = $_POST['Remain'] ?? '';
     $Status = $_POST['Status'] ?? '';
 
-<<<<<<< HEAD
-    // SQL query to insert data into the database (adjust table and field names)
-=======
     
->>>>>>> ac243ca (final)
     $sql = "INSERT INTO full_contract (Customer_Name, Year_Of_Birth, 
     SSN, Customer_Address, Mobile, Property_ID, Date_Of_Contract, Price, Deposit, Remain, 
     Status) VALUES ('$Customer_Name', '$Year_Of_Birth', '$SSN', '$Customer_Address', '$Mobile', '$Property_ID', '$Date_Of_Contract', '$Price', '$Deposit', '$Remain', '$Status')";
     $result = $conn->query($sql);
 
-<<<<<<< HEAD
-    // Check if the query was successful
-    if ($result) {
-        
-        header("Location: index.php");
-        exit(); // Make sure to exit after a header redirect
-=======
    
     if ($result) {
         
         echo "<script>alert('Hợp đồng đã được thêm thành công!'); window.location.href = 'xemhopdong.php';</script>";
         exit(); 
->>>>>>> ac243ca (final)
     } else {
         echo "Error adding contract: " . $conn->error;
     }
@@ -270,8 +176,3 @@ if (isset($_POST['add_contract'])) {
 
 $conn->close();
 ?>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ac243ca (final)
