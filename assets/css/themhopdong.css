@@ -1,111 +1,78 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
+a{
+    text-decoration: none;
 }
 
-ul {
-  list-style: none;
+ul{
+    list-style: none;
 }
 
-.container{
-  
-  margin: auto ;
- 
- 
-}
 body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-}
-
-#header {
-  color: #000;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  height: 10vh;
-  border: #000 solid;
-  width: 100%;
-}
-
-#header img {
-  max-width: 100%; 
-  max-height: 100%;
-}
-
-#header .logo {
-  width: 80px;
-  height: 70px;
-}
-
-#nav {
-  position: fixed;
-  left: 0;
-  width: 25vw;
-  height: 80vh;
-  line-height: 100px;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  text-align: center;
-  border: #000 solid;
-  padding: 50px 0;
-}
-
-#nav ul {
-  height: 100%;
-  width: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
   
-  font-size: 20px;
-}
+  header {
+    color: #000;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    
+    border: #000 solid;
+  }
+  
+  .logo {
+    color: #000;
+    border: #000 solid;
+    font-size: 1.5em;
+    padding: 40px;
+  }
 
-#nav a {
-  text-decoration: none;
-  color: #000;
-  font-weight: bold;
-}
-
-
-
-#content {
-  width: 75vw;
-  height: 80vh;
-  float: right;
-  padding: 40px 40px ;
-}
-
-#content .content-heading{
-  text-align: center;
-  font-size: 15px;
-}
-
-
-.content-item .btn-add{
-  background-color: rgb(76, 146, 1);
-  width: 100px;
-  padding: 5px 10px 5px 10px;
-  border: 2px solid #000;
-  margin-top: 50px;
-}
-
-.content-item .btn-add a{
-  color: #fff;
-  font-weight: 700;
-
-}
-#footer {
-  color: #000;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border: #000 solid;
-  height: 10vh;
-}
+  div{
+    border: #000;
+  }
+  
+  nav {
+    position: fixed;
+    
+    left: 0;
+    width: 500px;
+    line-height: 50px;
+    height: 100vh;
+  }
+  nav ul {
+    height: 100vh;
+    flex-direction: column; /* Thêm dòng này để thanh điều hướng nằm dọc */
+    text-align: left; 
+    border: #000 solid;
+    display: inline-block;
+    padding: 40% 10%;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  footer {
+    
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: #000 solid;
+  }
+  
