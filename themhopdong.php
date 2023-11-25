@@ -95,13 +95,13 @@ $conn->close();
         </div>
         <script>
             function formatNumber(input) {
-                // Xóa các ký tự không phải số
+                
                 let value = input.value.replace(/\D/g, '');
                 
-                // Định dạng số với dấu chấm ngăn cách hàng nghìn
+                
                 value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-                // Cập nhật giá trị vào trường input
+                
                 input.value = value;
             }
         </script>
