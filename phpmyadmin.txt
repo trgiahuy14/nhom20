@@ -1,0 +1,62 @@
+TẠO BẢNG
+
+CREATE TABLE Full_Contract (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Full_Contract_Code VARCHAR(15) NULL,
+    Customer_Name NVARCHAR(50) NOT NULL,
+    Year_Of_Birth INT NULL,
+    SSN VARCHAR(15) NOT NULL,
+    Customer_Address NVARCHAR(100) NULL,
+    Mobile VARCHAR(15) NULL,
+    Property_ID INT NOT NULL,
+    Date_Of_Contract DATE NULL,
+    Price DECIMAL(18, 0) NULL,
+    Deposit DECIMAL(18, 0) NULL,
+    Remain DECIMAL(18, 0) NULL,
+    Status BOOLEAN NOT NULL
+);
+---
+TRIGGER ĐÃ LÀM
+
+DELIMITER //
+CREATE TRIGGER TG_AUTOCODE_FULLCONTRACT_CODE
+BEFORE INSERT ON Full_Contract
+FOR EACH ROW
+BEGIN
+    DECLARE NAMHT VARCHAR(2);
+    DECLARE THANGHT VARCHAR(2);
+    DECLARE STT INT;
+    DECLARE MAHD VARCHAR(11);
+
+    SET NAMHT = RIGHT(YEAR(CURDATE()), 2);
+    SET THANGHT = RIGHT('0' + CONVERT(MONTH(CURDATE()), CHAR(2)), 2);
+
+    IF NOT EXISTS (
+            SELECT 1
+            FROM Full_Contract
+            WHERE SUBSTRING(Full_Contract_Code, 3, 2) = NAMHT
+                AND Full_Contract_Code IS NOT NULL
+        )
+    THEN
+        SET STT = 1;
+    ELSE
+        SET STT = (
+                SELECT MAX(RIGHT(Full_Contract_Code, 4))
+                FROM Full_Contract
+                WHERE SUBSTRING(Full_Contract_Code, 3, 2) = NAMHT
+            ) + 1;
+    END IF;
+
+    SET MAHD = CONCAT('HD', NAMHT, THANGHT, '-', LPAD(STT, 4, '0'));
+
+    SET NEW.Full_Contract_Code = MAHD;
+END;
+//
+DELIMITER ;
+
+INSERT DỮ LIỆU MẪU 
+
+INSERT INTO Full_Contract (ID, Full_Contract_Code, Customer_Name, Year_Of_Birth, SSN, Customer_Address, Mobile, Property_ID, Date_Of_Contract, Price, Deposit, Remain, Status)
+VALUES 
+(1, 'FC22110001', 'Lý Thị Huyền Châu', 1990, '301198908', '45 Trần Hưng Đạo, Quận 5, Thành phố Hồ Chí Minh', '0919686576', 1, '2022-11-18', 1000000000, 100000000, 900000000, TRUE),
+(2, 'FC22110002', 'Trần Công Anh', 1989, '404948494', '36 Lê Văn Sỹ, Quận 3, TP.HCM', '0967686878', 2, '2022-11-19', 2000000000, 200000000, 1800000000, TRUE);
