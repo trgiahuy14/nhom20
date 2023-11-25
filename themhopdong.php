@@ -90,21 +90,36 @@ $conn->close();
             <input type="text" id="Remain" name="Remain" oninput="formatNumber(this)" required>
             <br>
             <label for="Status">Trạng thái:</label>
-            <input type="text" id="Status" name="Status" oninput="formatNumber(this)" required>
+            <input type="text" id="Status" name="Status" required>
             <br>
         </div>
         <script>
-            function formatNumber(input) {
-                
-                let value = input.value.replace(/\D/g, '');
-                
-                
-                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    function formatNumber(input) {
+        let value = input.value.replace(/\D/g, '');
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        input.value = value;
 
-                
-                input.value = value;
-            }
-        </script>
+        let price = document.getElementById("Price").value.replace(/\D/g, '');
+        let deposit = document.getElementById("Deposit").value.replace(/\D/g, '');
+
+        let remain = parseInt(price) - parseInt(deposit);
+
+        // Kiểm tra xem remain có phải là một số hợp lệ không
+        if (!isNaN(remain)) {
+            remain = remain.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            document.getElementById("Remain").value = remain;
+
+            let status = remain == 0 ? "Đã thanh toán" : "Chưa thanh toán";
+            document.getElementById("Status").value = status;
+        } else {
+            // Nếu remain không phải là một số hợp lệ, gán giá trị rỗng cho ô "Còn lại" và "Trạng thái"
+            document.getElementById("Remain").value = "";
+            document.getElementById("Status").value = "";
+        }
+    }
+</script>
+
+
     </div>
     <div class="btn-add">
         <button type="submit" name="add_contract">Lưu hợp đồng</button>
@@ -158,15 +173,11 @@ if (isset($_POST['add_contract'])) {
     $Remain = $_POST['Remain'] ?? '';
     $Status = $_POST['Status'] ?? '';
 
-    
     $sql = "INSERT INTO full_contract (Customer_Name, Year_Of_Birth, 
     SSN, Customer_Address, Mobile, Property_ID, Date_Of_Contract, Price, Deposit, Remain, 
     Status) VALUES ('$Customer_Name', '$Year_Of_Birth', '$SSN', '$Customer_Address', '$Mobile', '$Property_ID', '$Date_Of_Contract', '$Price', '$Deposit', '$Remain', '$Status')";
-    $result = $conn->query($sql);
-
-   
-    if ($result) {
-        
+    
+    if ($conn->query($sql) === TRUE) {
         echo "<script>alert('Hợp đồng đã được thêm thành công!'); window.location.href = 'xemhopdong.php';</script>";
         exit(); 
     } else {
