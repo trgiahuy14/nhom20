@@ -104,15 +104,15 @@ $conn->close();
 
         let remain = parseInt(price) - parseInt(deposit);
 
-        // Kiểm tra xem remain có phải là một số hợp lệ không
+        
         if (!isNaN(remain)) {
             remain = remain.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
             document.getElementById("Remain").value = remain;
 
-            let status = remain == 0 ? "Đã thanh toán" : "Chưa thanh toán";
+            let status = remain == 0 ? "Đã thanh toán xong" : "Chưa thanh toán xong";
             document.getElementById("Status").value = status;
         } else {
-            // Nếu remain không phải là một số hợp lệ, gán giá trị rỗng cho ô "Còn lại" và "Trạng thái"
+            
             document.getElementById("Remain").value = "";
             document.getElementById("Status").value = "";
         }
@@ -134,7 +134,7 @@ $conn->close();
     </div>
 
             <div id="footer">
-            <p>@copyright by team 20</p>
+            <p>@Copyright by TH TRUE FRIENDS</p>
         </div>
     </div>
     
@@ -168,9 +168,11 @@ if (isset($_POST['add_contract'])) {
     $Mobile = $_POST['Mobile'] ?? '';
     $Property_ID = $_POST['Property_ID'] ?? '';
     $Date_Of_Contract = $_POST['Date_Of_Contract'] ?? '';
-    $Price = $_POST['Price'] ?? '';
-    $Deposit = $_POST['Deposit'] ?? '';
-    $Remain = $_POST['Remain'] ?? '';
+    $Price = isset($_POST['Price']) ? preg_replace('/\D/', '', $_POST['Price']) : '';
+    $Deposit = isset($_POST['Deposit']) ? preg_replace('/\D/', '', $_POST['Deposit']) : '';
+    
+    
+    $Remain = $Price - $Deposit;
     $Status = $_POST['Status'] ?? '';
 
     $sql = "INSERT INTO full_contract (Customer_Name, Year_Of_Birth, 

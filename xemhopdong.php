@@ -58,26 +58,26 @@ $conn->close();
                     </div>
                     
                     <div class="contract-list">
-                        <table class ="table table-light table-striped  table-hover table-bordered">
+                        <table class ="table table-light table-striped  table-hover table-bordered" >
                             <thead class="thead-dark">
-                                <tr>
+                                <tr >
                                     <th>ID</th>
-                                    <th>Full_Contract_Code</th>
-                                    <th>Customer_Name</th>
-                                    <th>Year_Of_Birth</th>
-                                    <th>SSN</th>
-                                    <th>Customer_Address</th>
-                                    <th>Mobile</th>
-                                    <th>Property_ID</th>
-                                    <th>Date_Of_Contract</th>
-                                    <th>Price</th>
-                                    <th>Deposit</th>
-                                    <th>Remain</th>
-                                    <th>Status</th>
+                                    <th class="text-nowrap">Mã hợp đồng</th>
+                                    <th class="text-nowrap">Tên khách hàng</th>
+                                    <th class="text-nowrap">Năm sinh</th>
+                                    <th class="text-nowrap">Số SSN</th>
+                                    <th class="text-nowrap">Địa chỉ khách hàng</th>
+                                    <th class="text-nowrap">Số điện thoại</th>
+                                    <th class="text-nowrap">Mã bật động sản</th>
+                                    <th class="text-nowrap">Ngày hợp đồng</th>
+                                    <th class="text-nowrap">Giá</th>
+                                    <th class="text-nowrap">Đã cọc</th>
+                                    <th class="text-nowrap">Còn lại</th>
+                                    <th class="text-nowrap">Trạng thái</th>
                                 </tr>
                                 <?php
                                     if ($result->num_rows > 0) {
-                                        // output data of each row
+                                       
                                         while($row = $result->fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>".$row["ID"]."</td>";
@@ -89,9 +89,9 @@ $conn->close();
                                             echo "<td>".$row["Mobile"]."</td>";
                                             echo "<td>".$row["Property_ID"]."</td>";
                                             echo "<td>".$row["Date_Of_Contract"]."</td>";
-                                            echo "<td>".$row["Price"]."</td>";
-                                            echo "<td>".$row["Deposit"]."</td>";
-                                            echo "<td>".$row["Remain"]."</td>";
+                                            echo "<td>".number_format($row["Price"])."</td>";
+                                            echo "<td>".number_format($row["Deposit"])."</td>";
+                                            echo "<td>".number_format($row["Remain"])."</td>";
                                             echo "<td>".$row["Status"]."</td>";
                                             echo "
                                         </tr>";
@@ -110,7 +110,7 @@ $conn->close();
             </div>
 
             <div id="footer">
-            <p>@copyright by team 20</p>
+            <p>@Copyright by TH TRUE FRIENDS</p>
         </div>
     </div>
     
